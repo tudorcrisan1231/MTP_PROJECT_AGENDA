@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MTP_PROJECT_AGENDA.Areas.Identity.Data;
+using MTP_PROJECT_AGENDA.Models;
 
 namespace MTP_PROJECT_AGENDA.Data;
 
@@ -19,4 +20,6 @@ public class AuthDBContext : IdentityDbContext<ApplicationUser>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
     }
+
+    public DbSet<Agenda> agenda { get; set; }
 }

@@ -1,8 +1,25 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using Microsoft.AspNetCore.Identity
+@using MTP_PROJECT_AGENDA.Areas.Identity.Data
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User)){
+    <div class="text-center">
+        <div> Hello @UserManager.GetUserName(User)!</div>
+        <a href="/Agenda" class="btn btn-primary mt-4">View your agendas</a>
+    </div>
+} else {
+    <div class="text-center">
+        <h1 class="display-4">Welcome to your agenda app</h1>
+        <div>
+            Here you can save all your important contacts easialy
+        </div>
+
+        <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary mt-4">Login to get started -></a>
+    </div>
+}
+
