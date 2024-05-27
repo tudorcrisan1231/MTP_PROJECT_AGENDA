@@ -14,7 +14,7 @@ namespace MTP_PROJECT_AGENDA.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Tel = table.Column<string>(nullable: true),
